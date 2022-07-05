@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        function debounce1(func, delay) {
+          var time = null
+
+          return function () {
+            var context = this
+            var args = arguments
+
+            clearTimeout(timeout)
+            timeout = setTimeout(function () {
+              func.apply(context, args)
+            }, delay)
+          }
+        }
+
+        // fn是你要调用的函数，delay是防抖的时间,immediate参数判断是否立即执行（希望立刻执行函数，然后等到停止触发 n 秒后，才可以重新触发执行）
+        function debounce2(fn, delay, immediate) {
+          // timer是一个定时器
+          let timer = null
+          // 返回一个闭包函数，用闭包保存timer确保其不会销毁，重复点击会清理上一次的定时器
+          return function () {
+            var context = this
+            // 保存事件参数，防止fn函数需要事件参数里的数据
+            let args = arguments
+            // 调用一次就清除上一次的定时器
+            clearTimeout(timer)
+            if (immediate) {
+              // 如果没执行，直接执行；如果执行过了，不再执行
+              var callNow = !timer
+              timer = setTimeout(() => {
+                timer = null
+              }, delay)
+              if (callNow) fn.apply(context, args)
+            } else {
+              timer = setTimeout(() => {
+                // 若不改变this指向，则会指向window
+                fn.apply(context, args)
+              }, delay)
+            }
+          }
+        }
+
+        // test
+        var count = 1
+        var container = document.getElementById('container')
+        function getUserAction(e) {
+          console.log(e)
+          container.innerHTML = count++
+        }
+
+        container.onmousemove = debounce2(getUserAction, 1000, true)
+      }
+    </script>
+    <style>
+      #container {
+        width: 100%;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        color: #fff;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container" style="background-color: lightblue"></div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function phone(mobile,len=4){
+            //截断操作只支持字符串，所以需要先转为字符串
+            return String(mobile).slice(0,len*-1)+"*".repeat(len);
+        }
+        //或者传入的时候就传字符串"18262455019"
+        console.log(phone(18262455019,5));
+    </script>
+</body>
+</html>

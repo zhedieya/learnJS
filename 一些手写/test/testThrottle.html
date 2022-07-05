@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        // 时间戳实现节流
+        function throttle1(func, delay) {
+          var previous = 0
+          return function () {
+            var context = this
+            var args = arguments
+            var now = +new Date()
+            let test = now - previous
+            if (now - previous >= delay) {
+              func.apply(context, args)
+              previous = now
+            }
+          }
+        }
+        // 定时器实现节流
+        function throttle2(func, delay) {
+          var timer = null
+          return function () {
+            var context = this
+            var args = arguments
+            if (!timer) {
+              timer = setTimeout(() => {
+                timer = null
+                func.apply(context, args)
+              }, delay)
+            }
+          }
+        }
+        // 第一种事件(throttle1)会立刻执行，第二种事件会在 n 秒后第一次执行
+        // 第一种事件(throttle2)停止触发后没有办法再执行事件，第二种事件停止触发后依然会再执行一次事件
+
+        // 结合
+
+        // test
+        var count = 1
+        var container = document.getElementById('container')
+        function getUserAction(e) {
+          console.log(e)
+          container.innerHTML = count++
+        }
+
+        container.onmousemove = throttle1(getUserAction, 3000)
+      }
+    </script>
+    <style>
+      #container {
+        width: 100%;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        color: #fff;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container" style="background-color: lightblue"></div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      aria-hidden="true"
+      role="img"
+      class="iconify iconify--mdi"
+      width="32"
+      height="32"
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 24 24"
+    >
+      <path fill="#888888" d="M19 19H5V5h14m0-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v2h-2v-2m0-8h2v6h-2V7"></path>
+    </svg>
+  </body>
+</html>

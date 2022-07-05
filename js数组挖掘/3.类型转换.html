@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <script>
+        let str="cyk";
+        console.log(str.split(""));
+        //Array.from() 方法对一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。
+        console.log(Array.from(str));
+
+        let divs=document.querySelectorAll("div");
+        console.log(
+            //类似于map filter
+            Array.from(divs,(item)=>{
+                console.log(item.innerHTML);
+            })
+        );
+
+
+    </script>
+</body>
+</html>
