@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div>cyk</div>
+    <div>xyh</div>
+    <script>
+      const divs = document.querySelectorAll("div");
+      console.log(divs);
+      //div类型不能直接调用map
+      //①转为数组(Array.from ...)②调用call修改this
+      Array.from(divs).map((item) => {
+        console.log(item.innerHTML);
+      });
+      console.log([...divs]);
+      [...divs].map((item) => {
+        console.log(item.innerHTML);
+      });
+
+      Array.prototype.map.call(divs, (item) => {
+        console.log(item);
+      });
+    </script>
+  </body>
+</html>

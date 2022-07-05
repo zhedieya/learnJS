@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=[1,2,3,4,5];
+//find() 方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。
+        let res1=arr.find(function(item){
+            return item>2;
+        })
+        console.log(res1);
+
+        let lessons=[{name:'js'},{name:'css'},{name:'vue'}]
+        //引用类型比较时比较的是内存地址，在includes里比较的是新内存地址，所以返回false
+        console.log(lessons.includes({name:'js'}));
+        //引用类型的数据可用find来处理
+        let res2=lessons.find(item=>{
+            return item.name==='css';
+        })
+        console.log(res2);
+
+//findIndex()方法返回数组中满足提供的测试函数的第一个元素的索引。若没有找到对应元素则返回-1。
+        let res3=lessons.findIndex(item=>{
+            return item.name==='css';
+        })
+        console.log(res3);
+    </script>
+</body>
+</html>

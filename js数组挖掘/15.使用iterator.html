@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let arr = ["qq", "ww", "ee"];
+      //注意与Object.keys()区分， Array.prototype.keys()返回一个包含数组中每个索引键的Array Iterator对象(可迭代对象)。
+      let res = arr.keys();
+      console.log(res);
+      //next() 方法返回一个包含属性 done 和 value 的对象。该方法也可以通过接受一个参数用以向生成器传值。
+      console.log(res.next());
+      var { value, done } = res.next();
+      console.log(value, done);
+
+      let res2 = arr.values();
+      //因为&&的执行顺序大于赋值，所以若不使用括号将赋值包起来的话会显示done未定义
+      while (({ value, done } = res2.next()) && done === false) {
+        console.log(value);
+      }
+
+      //for-of专门来操作迭代对象
+      for (const value of arr.values()) {
+        console.log(value);
+      }
+      for (const key of arr.keys()) {
+        console.log(key);
+      }
+
+      let arr2 = ["qqq", "www", "eee"];
+      let entries2 = arr2.entries();
+      //entries的value是包含索引和值的数组，而上文的keys的value只有值
+      var { value, done } = entries2.next(); //可以通过{value:[a,b],done}来获取值
+      console.log(value, done);
+
+      //使用迭代方法操作数组
+      for (const [key, value] of arr2.entries()) {
+        console.log(key, value);
+      }
+    </script>
+  </body>
+</html>

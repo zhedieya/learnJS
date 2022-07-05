@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        const topThreeDom1 = () => {
+          // 获取所有dom
+          const allDom = document.querySelectorAll('*')
+
+          const domMap = {}
+          // 计算数量
+          for (let i = 0; i < allDom.length; i++) {
+            let tagName = allDom[i].tagName
+            if (domMap[tagName]) {
+              domMap[tagName]++
+            } else {
+              domMap[tagName] = 1
+            }
+          }
+
+          // 排序获得前三dom
+          const [first, second, third] = Object.entries(domMap).sort((a, b) => {
+            return b[1] - a[1]
+          })
+          return [first, second, third]
+        }
+
+        function topThreeDom2() {
+          //获取所有dom
+          const allDom = document.querySelectorAll('*')
+
+          const domArr = [...allDom].map((val) => val.tagName)
+          let res =domArr.reduce((res, item) => {
+            res[item] = (res[item] || 0) + 1
+            return res
+          }, {})
+          return Object.entries(res).sort((a,b)=>b[1]-a[1]).slice(0,3)
+        }
+        console.log(topThreeDom2());
+      }
+    </script>
+  </head>
+  <body>
+    <a href=""></a>
+    <a href=""></a>
+    <a href=""></a>
+    <div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div>
+        <a href="">
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

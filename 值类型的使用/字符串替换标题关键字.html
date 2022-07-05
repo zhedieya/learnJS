@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>后盾人</title>
+  </head>
+  <body>
+    <script>
+      const hd = "Houdunren.com";
+      
+      const word=["css","am"];
+      const strings = "i am learning css";
+      //这儿的pre第一次的值是传进去的string，以后每次的值是函数返回的值
+      const status=word.reduce((pre,word)=>{
+          return pre.replace(word,`<a href="?w=${word}">${word}</a>`)
+      },strings)
+      console.log(status);
+      document.body.innerHTML+=status;
+    </script>
+  </body>
+</html>

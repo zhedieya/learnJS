@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const string="99";
+        console.log(string*1+1); //隐式转换
+        console.log(Number(string)+1); //显式转换
+
+        const number=99;
+        console.log(number+''); //隐式转换
+        //显式转换
+        console.log(String(number)); 
+        console.log(number.toString());
+
+        const str1="100.120cyk"
+        console.log(parseInt(str1));
+        console.log(parseFloat(str1));
+
+        //字符与数组的转换
+        const str2="c-yk";
+        console.log(str2.split("-"));
+        const arr=['cyk',99];
+        console.log(arr.join('|'));
+
+        
+    </script>
+</body>
+</html>
