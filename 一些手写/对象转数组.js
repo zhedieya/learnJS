@@ -18,7 +18,3 @@ let obj = {
   password: '22222',
 }
 
-let test = {
-  a:1
-}
-console.log(test);
