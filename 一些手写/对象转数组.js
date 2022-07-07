@@ -13,7 +13,7 @@ res.push(Object.keys(arr[0]))
 res.push(...arr.map(item => Object.values(item)))
 console.log(res);
 
-let obj={
-  keyword:'111',
-  password:'22222',
+let obj = {
+  keyword: '111',
+  password: '22222',
 }
