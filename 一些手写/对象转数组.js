@@ -31,3 +31,7 @@ Function.prototype._call = function (obj, ...arguments) {
   // 执行，返回执行值
   return obj[func](...arguments);
 }
+
+let a = 2;
+
+// test cherry-pick
