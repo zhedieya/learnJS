@@ -30,3 +30,6 @@ let testObj = {
 obj.testFn._call(testObj, 22);
 obj.testFn._apply(testObj, [22])
 
+let arr = [13, 54, 52, 5, 2, 5, 22, 521, 15]
+let max = Math.max.apply(Math, arr)
+console.log(max);
