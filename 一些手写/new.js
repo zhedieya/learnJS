@@ -26,3 +26,4 @@ const duck = _new(Person, 'zhedieya')
 console.log(duck.name);
 duck.sayName()
 
+// test
