@@ -30,3 +30,4 @@ let resultArr = Array.from(new Set(arr1.map(value => { return value.type }))).ma
   }
 })
 console.log(resultArr);
+// test
