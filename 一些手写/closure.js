@@ -61,5 +61,23 @@ c.set("a", 100);
 console.log(c.get("a")); // 100
 
 
-
-
+// 模块的公共API
+let foo = (function (id = "zhedieya") {
+  let publicAPI = {
+    change: change,
+    identify: identify1
+  }
+  function change() {
+    publicAPI.identify = identify2
+  }
+  function identify1() {
+    console.log(id);
+  }
+  function identify2() {
+    console.log(id.toUpperCase());
+  }
+  return publicAPI;
+})()
+foo.identify();
+foo.change();
+foo.identify()

@@ -19,5 +19,8 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
   }
 }
