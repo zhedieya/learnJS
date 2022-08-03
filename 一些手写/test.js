@@ -291,3 +291,13 @@ for (var i = 0; i < 5; i++) {
     }, 1000)
   })(i)
 }
+
+function spread(a,b){
+  console.log(a,b);  
+}
+spread.apply(null,[2,3])
+
+let curry = spread.bind(null,2)
+curry(3)
+
+spread.bind(null,2)(3)
