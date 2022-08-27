@@ -95,3 +95,51 @@ console.log(unique(array));
 
 [1, 1, 2].reduce((total, i) => (total.add(i), total), new Set())
 
+let planChangeRecord = [
+  {
+    changeAfter: "123",
+    changeBefore: "222",
+    field: "计划名称",
+    planId: "4028efc382a9be680182d8e5b09905a0",
+    planName: "222",
+    type: "修改",
+  },
+  {
+    changeAfter: "1234",
+    changeBefore: "222",
+    field: "计划名称",
+    planId: "4028efc382a9be680182d8e5b09905a0",
+    planName: "222",
+    type: "修改",
+  }, {
+    changeAfter: "12345",
+    changeBefore: "222",
+    field: "计划名称",
+    planId: "4028efc382a9be680182d8e5b09905a0",
+    planName: "222",
+    type: "修改",
+  }
+]
+
+// 对象数组根据某些属性去重
+/* 
+ 遇到这么个业务场景：vue watch深度监听一个对象数组，这个对象数组的数据是通过接口调用后拼接而成的(这个接口是获取当前表格某行数据变更的内容，如果多次变更这行数据的同一个属性，会造成数据冗余)，
+ 所以会出现许多属性相同的对象，那么就会出现重复的数据，这时候就可以用这个方法去重
+ 类似于上面的planChangeRecord数据
+ */
+function uniqueArray(arr) {
+  // 缓存由于记录数据
+  const cache = [];
+  for (const iterator of arr) {
+    // 检查缓存中是否存在
+    if (cache.find((element) => element.planId === iterator.planId && element.field === iterator.field)) {
+      // 存在则跳过
+      continue;
+    }
+    cache.push(iterator);
+  }
+  return cache;
+}
+// 若想留下最开始的数据  则不用reverse
+console.log(uniqueArray(planChangeRecord.reverse()));
+
