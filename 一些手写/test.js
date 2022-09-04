@@ -301,3 +301,4 @@ let curry = spread.bind(null,2)
 curry(3)
 
 spread.bind(null,2)(3)
+
