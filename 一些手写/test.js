@@ -269,36 +269,45 @@
 //     console.log(i);
 //   },1000)
 // }
-var arrayLike = {
-  0: 'zhangsan',
-  1: 'lisi',
-  2: 'zhaoliu',
-  length: 3
+// var arrayLike = {
+//   0: 'zhangsan',
+//   1: 'lisi',
+//   2: 'zhaoliu',
+//   length: 3
+// }
+
+// console.log(Array.from(arrayLike));
+
+// for (var i = 0; i < 5; i++) {
+//   setTimeout(() => {
+//     console.log(i);
+//   }, 1000)
+// }
+
+// for (var i = 0; i < 5; i++) {
+//   (function (j) {
+//     setTimeout(() => {
+//       console.log(j);
+//     }, 1000)
+//   })(i)
+// }
+
+// function spread(a,b){
+//   console.log(a,b);  
+// }
+// spread.apply(null,[2,3])
+
+// let curry = spread.bind(null,2)
+// curry(3)
+
+// spread.bind(null,2)(3)
+
+function zhedieya() {
+  console.log(arguments);
 }
+zhedieya(1, 2, 3)
 
-console.log(Array.from(arrayLike));
-
-for (var i = 0; i < 5; i++) {
-  setTimeout(() => {
-    console.log(i);
-  }, 1000)
+function test (a,...args){
+  console.log(args);
 }
-
-for (var i = 0; i < 5; i++) {
-  (function (j) {
-    setTimeout(() => {
-      console.log(j);
-    }, 1000)
-  })(i)
-}
-
-function spread(a,b){
-  console.log(a,b);  
-}
-spread.apply(null,[2,3])
-
-let curry = spread.bind(null,2)
-curry(3)
-
-spread.bind(null,2)(3)
-
+test(1,2,3)
