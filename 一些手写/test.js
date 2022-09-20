@@ -316,4 +316,4 @@ test(1,2,3)
 // git commit -m ":sparkles: test emoji"
 // git commit -m ":sparkles: test emoji"
 
-//  conflict hanppens here (main)
+// conflict happens here (feature1)
