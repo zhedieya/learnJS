@@ -309,10 +309,11 @@ zhedieya(1, 2, 3)
 
 function test (a,...args){
   console.log(args);
-
+}
 test(1,2,3)
 //  test gitmoji
 // git commit -m ":sparkles: test emoji"
 // git commit -m ":sparkles: test emoji"
 // git commit -m ":sparkles: test emoji"
 
+//  conflict hanppens here (main)
