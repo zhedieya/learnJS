@@ -293,7 +293,7 @@
 // }
 
 // function spread(a,b){
-//   console.log(a,b);  
+//   console.log(a,b);
 // }
 // spread.apply(null,[2,3])
 
@@ -302,18 +302,29 @@
 
 // spread.bind(null,2)(3)
 
-function zhedieya() {
-  console.log(arguments);
-}
-zhedieya(1, 2, 3)
+// function zhedieya() {
+//   console.log(arguments)
+// }
+// zhedieya(1, 2, 3)
 
-function test (a,...args){
-  console.log(args);
-}
-test(1,2,3)
+// function test(a, ...args) {
+//   console.log(args)
+// }
+// test(1, 2, 3)
 //  test gitmoji
 // git commit -m ":sparkles: test emoji"
 // git commit -m ":sparkles: test emoji"
 // git commit -m ":sparkles: test emoji"
 
 // conflict happens here (feature1)
+
+let areaCodeOptions = [
+  { abbr: 'CN', code: '+86', name: '中国' },
+  { abbr: 'aa', code: '+aa', name: 'aa' },
+]
+// 当前国家下拉框选中的abbr
+let currentAbbr = 'CN'
+// 根据当前国家abbr获取当前国家的所有信息
+let currentInfo = areaCodeOptions.find(item => item.abbr === currentAbbr)
+console.log(currentInfo);
+// 然后传给区号子组件
