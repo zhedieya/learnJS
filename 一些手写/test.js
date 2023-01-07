@@ -318,13 +318,13 @@
 
 // conflict happens here (feature1)
 
-let areaCodeOptions = [
-  { abbr: 'CN', code: '+86', name: '中国' },
-  { abbr: 'aa', code: '+aa', name: 'aa' },
-]
+// let areaCodeOptions = [
+//   { abbr: 'CN', code: '+86', name: '中国' },
+//   { abbr: 'aa', code: '+aa', name: 'aa' },
+// ]
 // 当前国家下拉框选中的abbr
-let currentAbbr = 'CN'
+// let currentAbbr = 'CN'
 // 根据当前国家abbr获取当前国家的所有信息
-let currentInfo = areaCodeOptions.find(item => item.abbr === currentAbbr)
-console.log(currentInfo);
+// let currentInfo = areaCodeOptions.find(item => item.abbr === currentAbbr)
+// console.log(currentInfo);
 // 然后传给区号子组件
