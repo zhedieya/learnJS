@@ -67,14 +67,14 @@ var stat = function (path) {
 function findLargest2(dir) {
   return readDir(dir)
     .then(function (files) {
-      console.log(files);
+      console.log(files)
       let promises = files.map((file) => stat(path.join(dir, file)))
       return Promise.all(promises).then(function (stats) {
         return { stats, files }
       })
     })
     .then((data) => {
-      console.log(data);
+      // console.log(data)
       let largest = data.stats
         .filter(function (stat) {
           return stat.isFile()
@@ -92,3 +92,51 @@ function findLargest2(dir) {
 findLargest2('./').then((filename) => {
   console.log('largest file was:', filename)
 })
+
+// 使用回调函数
+function useCallBack(item, cb) {
+  console.log(item)
+  cb(item)
+}
+
+useCallBack('cyk', function (item) {
+  console.log(item, 'cb_cyk')
+})
+
+//红绿灯循环执行
+function red() {
+  console.log('red')
+}
+function green() {
+  console.log('green')
+}
+function yellow() {
+  console.log('yellow')
+}
+
+function light(timer, cb) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      cb()
+      resolve()
+    }, timer)
+  })
+}
+
+const step = () => {
+  Promise.resolve()
+    .then(() => {
+      return light(3000, red)
+    })
+    .then(() => {
+      return light(1000, green)
+    })
+    .then(() => {
+      return light(2000, yellow)
+    })
+    .then(() => {
+      step()
+    })
+}
+
+step()
