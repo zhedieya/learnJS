@@ -71,6 +71,7 @@ class MyPromise {
           let x = resolveFn(value)
           //分类讨论返回值,如果是Promise,那么等待Promise状态变更,否则直接resolve
           //这里resolve之后，就能被下一个.then()的回调获取到返回值，从而实现链式调用
+          console.log('in fulfilledFn');
           x instanceof MyPromise ? x.then(resolve, reject) : resolve(x)
         } catch (error) {
           reject(error)
